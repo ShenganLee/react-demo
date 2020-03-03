@@ -1,11 +1,56 @@
 {
-  "name": "react-demo",
-  "version": "1.0.0",
-  "repository": "https://github.com/ShenganLee/react-demo.git",
-  "author": {
-    "name": "ShenganLee",
-    "email": "lsa1669778762@gmail.com",
-    "url": "https://github.com/ShenganLee"
-  },
-  "license": "MIT"
+    "name": "react-demo",
+    "version": "1.0.0",
+    "repository": "https://github.com/ShenganLee/react-demo.git",
+    "author": {
+        "name": "ShenganLee",
+        "email": "lsa1669778762@gmail.com",
+        "url": "https://github.com/ShenganLee"
+    },
+    "license": "MIT",
+    "scripts": {
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -c .commitlintrc.js -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js}": [
+            "eslint -c .eslintrc.js"
+        ],
+        "*.scss": [
+            "stylelint --config .stylelintrc.json"
+        ],
+        "*.{ts,tsx,js,json,scss,md}": [
+            "prettier --write"
+        ]
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@typescript-eslint/eslint-plugin": "^2.22.0",
+        "@typescript-eslint/parser": "^2.22.0",
+        "conventional-changelog-cli": "^2.0.31",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-import-resolver-typescript": "^2.0.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-react": "^7.18.3",
+        "eslint-plugin-react-hooks": "^1.7.0",
+        "husky": "^4.2.3",
+        "lint-staged": "^10.0.8",
+        "prettier": "^1.19.1",
+        "stylelint": "^13.2.0",
+        "stylelint-config-prettier": "^8.0.1",
+        "stylelint-config-rational-order": "^0.1.2",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+        "stylelint-order": "^4.0.0",
+        "typescript": "^3.8.3"
+    }
 }
