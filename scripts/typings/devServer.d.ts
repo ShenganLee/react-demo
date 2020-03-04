@@ -1,5 +1,6 @@
 import { Options } from 'http-proxy-middleware/dist/types';
 
-export interface ProxyTable {
-    [path: string]: Options;
+export interface ProxyOption {
+    context: string[];
+    option: Options;
 }

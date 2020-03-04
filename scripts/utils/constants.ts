@@ -5,9 +5,9 @@ const __DEV__ = process.env.NODE_ENV !== 'production';
 const ENABLE_ANALYZE = !!argv.analyze;
 const ENABLE_OPEN = !!argv.open;
 
-const HOST = '127.0.0.1';
-const DEFAULT_PORT = 3000;
-const COPYRIGHT = `/** @preserve Powered by react-typescript-boilerplate (https://github.com/tjx666/react-typescript-boilerplate) */`;
+const HOST = process.env.HOST || '0.0.0.0';
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+const COPYRIGHT = `/** @preserve Powered by react-demo (https://github.com/ShenganLee) */`;
 
 const PROJECT_ROOT = path.resolve(__dirname, '../../');
 const PROJECT_NAME = path.parse(PROJECT_ROOT).name;
@@ -17,7 +17,7 @@ export {
     __DEV__,
     ENABLE_ANALYZE,
     HOST,
-    DEFAULT_PORT,
+    PORT,
     COPYRIGHT,
     ENABLE_OPEN,
     PROJECT_NAME,

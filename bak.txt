@@ -1,0 +1,4 @@
+package.json
+    husky
+        hooks
+            "commit-msg": "commitlint -c .commitlintrc.js -E HUSKY_GIT_PARAMS"

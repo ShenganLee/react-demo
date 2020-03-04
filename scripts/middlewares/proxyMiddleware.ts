@@ -9,13 +9,15 @@ function link(str: string) {
 }
 
 export default function proxyMiddleware(server: Express) {
-    Object.entries(proxyTable).forEach(([path, options]) => {
-        const from = path;
-        const to = options.target as string;
-        console.log(`proxy ${link(from)} ${chalk.green('->')} ${link(to)}`);
+    proxyTable.forEach(({ context, option }) => {
+        const from = context.join('、');
+        const to = option.target as string;
+        console.log(`proxy ${chalk.magenta(from)} ${chalk.green('->')} ${link(to)}`);
 
-        if (!options.logLevel) options.logLevel = 'warn';
-        server.use(path, createProxyMiddleware(options));
+        if (!option.logLevel) option.logLevel = 'warn';
+        context.forEach(path => {
+            server.use(path, createProxyMiddleware(option));
+        });
     });
     process.stdout.write('\n');
 }

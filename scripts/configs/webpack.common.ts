@@ -68,7 +68,7 @@ const commonConfig: Configuration = {
     },
     plugins: [
         new WebpackBar({
-            name: 'react-typescript-boilerplate',
+            name: 'react-demo',
             // react 蓝
             color: '#61dafb',
         }),
